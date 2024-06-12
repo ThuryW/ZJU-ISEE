@@ -1,0 +1,67 @@
+# world size is 3x3.
+
+# R1: If there is a wumpus at square (i,j), there is stench at all adjacent squares.
+(IFF W_1_3 (AND S_1_2 S_2_3))
+(IFF W_2_3 (AND S_1_3 S_2_2 S_3_3))
+(IFF W_3_1 (AND S_2_1 S_3_2))
+(IFF W_3_2 (AND S_2_2 S_3_1 S_3_3))
+(IFF W_3_3 (AND S_2_3 S_3_2))
+
+# R2: If there is stench at square (i,j), there is a wumpus at one of the adjacent squares.
+(IFF S_1_2 W_1_3)
+(IFF S_1_3 W_2_3)
+(IFF S_2_1 W_3_1)
+(IFF S_2_2 (XOR W_2_3 W_3_2))
+(IFF S_2_3 (XOR W_1_3 W_3_3))
+(IFF S_3_1 W_3_2)
+(IFF S_3_2 (XOR W_3_1 W_3_3))
+(IFF S_3_3 (XOR W_2_3 W_3_2))
+
+# R3: If there is a pit at square (i,j), there is breeze at all adjacent squares.
+(IFF P_1_3 (AND B_1_2 B_2_3))
+(IFF P_2_3 (AND B_1_3 B_2_2 B_3_3))
+(IFF P_3_1 (AND B_2_1 B_3_2))
+(IFF P_3_2 (AND B_2_2 B_3_1 B_3_3))
+(IFF P_3_3 (AND B_2_3 B_3_2))
+
+# R4: If there is breeze at square (i,j), there is a pit at one or more of the adjacent squares.
+# TODO: Please fill in the blank of R4
+(IFF B_1_2 P_1_3)
+(IFF B_1_3 P_2_3)
+(IFF B_2_1 P_3_1)
+(IFF B_2_2 (OR P_2_3 P_3_2))
+(IFF B_2_3 (OR P_1_3 P_3_3))
+(IFF B_3_1 P_3_2)
+(IFF B_3_2 (OR P_3_1 P_3_3))
+(IFF B_3_3 (OR P_2_3 P_3_2))
+
+# R5: There is one and only one monster (no more, no fewer).
+(XOR W_1_3 W_2_3 W_3_1 W_3_2 W_3_3)
+
+# R6: Squares (1,1), (1,2), (2,1), (2,2) have no monsters and no pits.
+(NOT P_1_1)
+(NOT P_1_2)
+(NOT P_2_1)
+(NOT P_2_2)
+(NOT S_1_1)
+(NOT B_1_1)
+(NOT W_1_1)
+(NOT W_1_2)
+(NOT W_2_1)
+(NOT W_2_2)
+
+# R7: The number of pits can be between 1 and 4.
+(OR P_1_3 P_2_3 P_3_1 P_3_2 P_3_3)
+(NOT (AND P_1_3 P_2_3 P_3_1 P_3_2 P_3_3))
+
+# R8: If there is a wumpus or a pit in square (i, j), there isn't a gold
+# TODO: Please fill in the blank of R8
+(NOT (AND G_1_1 (OR W_1_1 P_1_1)))
+(NOT (AND G_1_2 (OR W_1_2 P_1_2)))
+(NOT (AND G_1_3 (OR W_1_3 P_1_3)))
+(NOT (AND G_2_1 (OR W_2_1 P_2_1)))
+(NOT (AND G_2_2 (OR W_2_2 P_2_2)))
+(NOT (AND G_2_3 (OR W_2_3 P_2_3)))
+(NOT (AND G_3_1 (OR W_3_1 P_3_1)))
+(NOT (AND G_3_2 (OR W_3_2 P_3_2)))
+(NOT (AND G_3_3 (OR W_3_3 P_3_3)))

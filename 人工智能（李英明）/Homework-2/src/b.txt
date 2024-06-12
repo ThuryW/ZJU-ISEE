@@ -1,0 +1,29 @@
+(NOT W_1_1)
+(NOT S_1_1)
+(NOT P_1_1)
+(NOT B_1_1)
+(NOT G_1_1)
+
+(NOT W_1_2)
+S_1_2
+(NOT P_1_2)
+(NOT B_1_2)
+(NOT G_1_2)
+
+(NOT W_2_1)
+(NOT S_2_1)
+(NOT P_2_1)
+B_2_1
+(NOT G_2_1)
+
+(NOT W_2_2)
+(NOT S_2_2)
+(NOT P_2_2)
+(NOT B_2_2)
+(NOT G_2_2)
+
+(NOT W_3_2)
+(NOT S_3_2)
+(NOT P_3_2)
+B_3_2
+(NOT G_3_2)

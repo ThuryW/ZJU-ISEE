@@ -1,0 +1,80 @@
+
+Test1.om:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010054 <addi>:
+   10054:	00100513          	li	a0,1
+
+00010058 <add>:
+   10058:	00a505b3          	add	a1,a0,a0
+
+0001005c <sub>:
+   1005c:	40b00633          	neg	a2,a1
+
+00010060 <and>:
+   10060:	00a576b3          	and	a3,a0,a0
+   10064:	000576b3          	and	a3,a0,zero
+   10068:	00a076b3          	and	a3,zero,a0
+   1006c:	000076b3          	and	a3,zero,zero
+
+00010070 <andi>:
+   10070:	00157693          	andi	a3,a0,1
+
+00010074 <or>:
+   10074:	00a56733          	or	a4,a0,a0
+   10078:	00056733          	or	a4,a0,zero
+   1007c:	00a06733          	or	a4,zero,a0
+   10080:	00006733          	or	a4,zero,zero
+
+00010084 <ori>:
+   10084:	00106713          	ori	a4,zero,1
+
+00010088 <xor>:
+   10088:	00a547b3          	xor	a5,a0,a0
+   1008c:	000547b3          	xor	a5,a0,zero
+   10090:	00a047b3          	xor	a5,zero,a0
+   10094:	000047b3          	xor	a5,zero,zero
+
+00010098 <xori>:
+   10098:	00054793          	xori	a5,a0,0
+
+0001009c <lui>:
+   1009c:	00008837          	lui	a6,0x8
+
+000100a0 <auipc>:
+   100a0:	00008897          	auipc	a7,0x8
+
+000100a4 <slli>:
+   100a4:	00251913          	slli	s2,a0,0x2
+
+000100a8 <sll>:
+   100a8:	01251933          	sll	s2,a0,s2
+
+000100ac <srli>:
+   100ac:	00195913          	srli	s2,s2,0x1
+
+000100b0 <srl>:
+   100b0:	00a95933          	srl	s2,s2,a0
+
+000100b4 <srai>:
+   100b4:	40165913          	srai	s2,a2,0x1
+
+000100b8 <sra>:
+   100b8:	40a65933          	sra	s2,a2,a0
+
+000100bc <slt>:
+   100bc:	00a029b3          	sgtz	s3,a0
+   100c0:	00c929b3          	slt	s3,s2,a2
+   100c4:	000929b3          	sltz	s3,s2
+   100c8:	00c529b3          	slt	s3,a0,a2
+
+000100cc <slti>:
+   100cc:	00202993          	slti	s3,zero,2
+
+000100d0 <sltu>:
+   100d0:	00c939b3          	sltu	s3,s2,a2
+
+000100d4 <sltiu>:
+   100d4:	00093993          	sltiu	s3,s2,0

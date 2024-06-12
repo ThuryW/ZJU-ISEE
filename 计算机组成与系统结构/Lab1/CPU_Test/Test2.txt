@@ -1,0 +1,70 @@
+
+Test2.om:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00010054 <beq_test>:
+   10054:	00100513          	li	a0,1
+   10058:	000505b3          	add	a1,a0,zero
+   1005c:	00a58463          	beq	a1,a0,10064 <bne_test>
+   10060:	00100193          	li	gp,1
+
+00010064 <bne_test>:
+   10064:	00059463          	bnez	a1,1006c <blt_test>
+   10068:	00100193          	li	gp,1
+
+0001006c <blt_test>:
+   1006c:	00b04463          	bgtz	a1,10074 <bge_test1>
+   10070:	00100193          	li	gp,1
+
+00010074 <bge_test1>:
+   10074:	00a5d463          	ble	a0,a1,1007c <bge_test2>
+   10078:	00100193          	li	gp,1
+
+0001007c <bge_test2>:
+   1007c:	0005d463          	bgez	a1,10084 <bltu_test>
+   10080:	00100193          	li	gp,1
+
+00010084 <bltu_test>:
+   10084:	fff00593          	li	a1,-1
+   10088:	00b06463          	bltu	zero,a1,10090 <bgeu_test>
+   1008c:	00100193          	li	gp,1
+
+00010090 <bgeu_test>:
+   10090:	00a5f463          	bleu	a0,a1,10098 <jal_test>
+   10094:	00100193          	li	gp,1
+
+00010098 <jal_test>:
+   10098:	0080066f          	jal	a2,100a0 <jalr_test>
+   1009c:	00100193          	li	gp,1
+
+000100a0 <jalr_test>:
+   100a0:	00c606e7          	jalr	a3,12(a2)
+   100a4:	00100193          	li	gp,1
+   100a8:	ffe00593          	li	a1,-2
+
+000100ac <sw>:
+   100ac:	00000097          	auipc	ra,0x0
+   100b0:	00b0a023          	sw	a1,0(ra) # 100ac <sw>
+
+000100b4 <sh>:
+   100b4:	00b09323          	sh	a1,6(ra)
+
+000100b8 <sb>:
+   100b8:	00b08523          	sb	a1,10(ra)
+
+000100bc <lw>:
+   100bc:	0000a703          	lw	a4,0(ra)
+
+000100c0 <lh>:
+   100c0:	00609783          	lh	a5,6(ra)
+
+000100c4 <lhu>:
+   100c4:	0060d783          	lhu	a5,6(ra)
+
+000100c8 <lb>:
+   100c8:	00a08803          	lb	a6,10(ra)
+
+000100cc <lbu>:
+   100cc:	00a0c803          	lbu	a6,10(ra)
